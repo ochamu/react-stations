@@ -7,8 +7,15 @@ import './App.css'
  */
 export const App = () => {
   return (
+    <>
+    <header>
+      <h1>Dogアプリ</h1>
+    </header>
     <div>
-      <header>Dogアプリ</header>
+      犬の画像を表示するサイトです。
     </div>
-  )
+    <img src="https://images.dog.ceo/breeds/sheepdog-english/n02105641_2586.jpg" alt="犬の画像" />
+    
+    </>
+  );
 }
