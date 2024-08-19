@@ -1,6 +1,6 @@
 // DO NOT DELETE
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 
 /**
@@ -9,9 +9,14 @@ import './App.css'
 export const App = () => {
   const [dogUrl, setDogUrl] = useState("https://images.dog.ceo/breeds/sheepdog-english/n02105641_2586.jpg");
 
-  const Nexturl = () => {
-    setDogUrl("https://images.dog.ceo/breeds/hound-english/n02089973_1132.jpg");
+  const updateUrl = () => {
+    fetch("https://dog.ceo/api/breeds/image/random")
+    .then((response) => response.json())
+    .then((data) => {
+      setDogUrl(data.message);
+    })
   };
+
   return (
     <>
     <header>
@@ -21,7 +26,7 @@ export const App = () => {
       犬の画像を表示するサイトです。
     </div>
     <img src={dogUrl} alt="犬の画像" />
-    <button onClick={Nexturl}>更新</button>
+    <button onClick={updateUrl}>更新</button>
     </>
   );
 };
