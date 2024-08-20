@@ -19,7 +19,7 @@ export const App = () => {
 
   return (
     <>
-    <header>
+    <header className='title'>
       <h1>Dogアプリ</h1>
     </header>
     <div>
