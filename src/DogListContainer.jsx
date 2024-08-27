@@ -1,8 +1,10 @@
 // @ts-check
 import { useState, useEffect } from 'react';
+import { BreedsSelect } from './BreedsSelect';
 
 export const DogListContainer = () => {
   const [breeds, setBreeds] = useState([]);
+  const [selectedBreed, setSelectedBread] = useState([]);
 
   const breedslist = () => {
     fetch("https://dog.ceo/api/breeds/list/all")
@@ -18,7 +20,7 @@ export const DogListContainer = () => {
   
   return (
   <>
-  <p>{breeds}</p>
+  <BreedsSelect breeds={breeds} selectedBreed={selectedBreed} onBreedChange={setSelectedBread} />
   </>)
 }
 
